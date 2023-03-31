@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Seller;
-use App\Services\Books\SellerService;
+use App\Services\Sellers\SellerService;
 use App\Http\Requests\StoreSellerRequest;
 use App\Http\Requests\UpdateSellerRequest;
 
