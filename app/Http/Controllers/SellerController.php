@@ -6,6 +6,8 @@ use App\Models\Seller;
 use App\Services\Sellers\SellerService;
 use App\Http\Requests\StoreSellerRequest;
 use App\Http\Requests\UpdateSellerRequest;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class SellerController extends Controller
 {   
@@ -18,7 +20,7 @@ class SellerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request): JsonResponse
     {
         return response()->json($this->sellerService->index());
     }
