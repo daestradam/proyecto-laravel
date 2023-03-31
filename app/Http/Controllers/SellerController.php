@@ -76,9 +76,9 @@ class SellerController extends Controller
      * @param  \App\Models\Seller  $seller
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSellerRequest $request, Seller $seller)
+    public function update(Request $request, int $id)
     {
-        //
+        return response()->json($this->sellerService->update($request, $id));
     }
 
     /**

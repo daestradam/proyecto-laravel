@@ -38,4 +38,16 @@ class SellerServiceImpl implements SellerService
         $seller->save();
         return $seller;
     }
+
+    public function update(Request $request, int $id): Seller
+    {
+        $seller = Seller::findOrfail($id);
+        $seller->name = $request->name;
+        $seller->identification = $request->identification;
+        $seller->phone_number = $request->phone_number;
+        $seller->type_product = $request->type_product;
+        $seller->payment_method = $request->payment_method;
+        $seller->save();
+        return $seller;
+    }
 }

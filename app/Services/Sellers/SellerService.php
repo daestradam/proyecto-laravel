@@ -15,4 +15,5 @@ interface SellerService
     public function show(int $id): Seller;
     public function destroy(int $id);
     public function store(Request $request): Seller;
+    public function update(Request $request, int $id): Seller;
 }
