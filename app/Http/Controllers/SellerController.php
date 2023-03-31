@@ -8,7 +8,11 @@ use App\Http\Requests\StoreSellerRequest;
 use App\Http\Requests\UpdateSellerRequest;
 
 class SellerController extends Controller
-{
+{   
+    public function __construct(protected SellerService $sellerService)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +20,7 @@ class SellerController extends Controller
      */
     public function index()
     {
-        return response()->json($this->bookService->index());
+        return response()->json($this->sellerService->index());
     }
 
     /**
