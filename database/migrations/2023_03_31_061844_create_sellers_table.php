@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('sellers', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('identification');
+            $table->integer('phone_number');
+            $table->enum('type_product',['mixto','almuerzo','dulces']);
+            $table->enum('payment_method',['transferencia','efectivo','ambos']);
             $table->timestamps();
         });
     }
