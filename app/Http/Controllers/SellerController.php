@@ -20,7 +20,7 @@ class SellerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request): JsonResponse
+    public function index(): JsonResponse
     {
         return response()->json($this->sellerService->index());
     }
