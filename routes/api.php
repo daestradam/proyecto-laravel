@@ -17,6 +17,8 @@ use App\Http\Controllers\SellerController;
 
 Route::apiResource('sellers', SellerController::class);
 
+//Route::apiResource('sellers', SellerController::class)->except(['create', 'edit']);
+
 /*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
