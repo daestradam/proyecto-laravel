@@ -41,9 +41,10 @@ class SellerController extends Controller
      * @param  \App\Http\Requests\StoreSellerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSellerRequest $request)
+    public function store(Request $request)
     {
-        //
+
+        return response()->json($this->sellerService->store($request));
     }
 
     /**

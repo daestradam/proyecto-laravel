@@ -3,6 +3,7 @@
 namespace App\Services\Sellers\Impl;
 
 use App\Models\Seller;
+use Illuminate\Http\Request;
 use App\Services\Sellers\SellerService;
 use Illuminate\Support\Collection;
 
@@ -24,5 +25,17 @@ class SellerServiceImpl implements SellerService
     public function destroy(int $id)
     {
         return Seller::findOrfail($id)->delete();
+    }
+
+    public function store(Request $request): Seller
+    {
+        $seller = new Seller();
+        $seller->name = $request->name;
+        $seller->identification = $request->identification;
+        $seller->phone_number = $request->phone_number;
+        $seller->type_product = $request->type_product;
+        $seller->payment_method = $request->payment_method;
+        $seller->save();
+        return $seller;
     }
 }
