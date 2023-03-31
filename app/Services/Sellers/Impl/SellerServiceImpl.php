@@ -15,4 +15,10 @@ class SellerServiceImpl implements SellerService
     {
         return Seller::orderBy('id', 'desc')->get();
     }
+
+    public function show(int $id): Seller
+    {
+        return Seller::where('id', $id)->firstOrFail();
+    }
+
 }

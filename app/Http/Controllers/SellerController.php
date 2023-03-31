@@ -52,9 +52,9 @@ class SellerController extends Controller
      * @param  \App\Models\Seller  $seller
      * @return \Illuminate\Http\Response
      */
-    public function show(Seller $seller)
+    public function show(int $id)
     {
-        //
+        return response()->json($this->sellerService->show($id));
     }
 
     /**

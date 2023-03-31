@@ -2,6 +2,7 @@
 
 namespace App\Services\Sellers;
 
+use App\Models\Seller;
 use Illuminate\Support\Collection;
 
 interface SellerService
@@ -10,4 +11,5 @@ interface SellerService
      * @return Collection
      */
     public function index(): Collection;
+    public function show(int $id): Seller;
 }
