@@ -12,4 +12,5 @@ interface SellerService
      */
     public function index(): Collection;
     public function show(int $id): Seller;
+    public function destroy(int $id);
 }

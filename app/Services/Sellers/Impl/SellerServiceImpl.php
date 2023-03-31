@@ -21,4 +21,8 @@ class SellerServiceImpl implements SellerService
         return Seller::where('id', $id)->firstOrFail();
     }
 
+    public function destroy(int $id)
+    {
+        return Seller::findOrfail($id)->delete();
+    }
 }

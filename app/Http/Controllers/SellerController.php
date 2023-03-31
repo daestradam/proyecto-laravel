@@ -86,8 +86,8 @@ class SellerController extends Controller
      * @param  \App\Models\Seller  $seller
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Seller $seller)
+    public function destroy(int $id)
     {
-        //
+        return response()->json($this->sellerService->destroy($id));
     }
 }
