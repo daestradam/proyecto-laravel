@@ -8,6 +8,9 @@ use App\Http\Requests\StoreSellerRequest;
 use App\Http\Requests\UpdateSellerRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Http\Resources\SellerCollection;
+use App\Http\Resources\SellerResource;
+use App\DataTransferObjects\Seller\StoreSellerData;
 
 class SellerController extends Controller
 {   
@@ -20,9 +23,9 @@ class SellerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(): JsonResponse
+    public function index()
     {
-        return response()->json($this->sellerService->index());
+        return new SellerCollection($this->sellerService->index());
     }
 
     /**
@@ -41,10 +44,14 @@ class SellerController extends Controller
      * @param  \App\Http\Requests\StoreSellerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
 
-        return response()->json($this->sellerService->store($request));
+        return response()->json(
+            new SellerResource(
+                $this->sellerService->store(StoreSellerData::from($request))
+            )
+        );
     }
 
     /**

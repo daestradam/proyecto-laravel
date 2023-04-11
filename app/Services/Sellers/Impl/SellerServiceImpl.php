@@ -6,6 +6,7 @@ use App\Models\Seller;
 use Illuminate\Http\Request;
 use App\Services\Sellers\SellerService;
 use Illuminate\Support\Collection;
+use App\DataTransferObjects\Seller\StoreSellerData;
 
 class SellerServiceImpl implements SellerService
 {
@@ -27,16 +28,17 @@ class SellerServiceImpl implements SellerService
         return Seller::findOrfail($id)->delete();
     }
 
-    public function store(Request $request): Seller
+    public function store(StoreSellerData $storeSellerData): Seller
     {
-        $seller = new Seller();
+        /*$seller = new Seller();
         $seller->name = $request->name;
         $seller->identification = $request->identification;
         $seller->phone_number = $request->phone_number;
         $seller->type_product = $request->type_product;
         $seller->payment_method = $request->payment_method;
         $seller->save();
-        return $seller;
+        return $seller;*/
+        return Seller::create($storeSellerData->toArray());
     }
 
     public function update(Request $request, int $id): Seller
