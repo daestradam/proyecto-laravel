@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('quantity');
             $table->string('image');
+            $table->unsignedBigInteger('id_seller');
             $table->foreign('id_seller')->references('id')->on('sellers');
             $table->timestamps();
         });
