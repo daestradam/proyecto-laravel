@@ -16,10 +16,18 @@ class SellerSeeder extends Seeder
     public function run():void
     {
         $seller = new Seller();
-        $seller->name = 'Juanito Alimaña';
+        $seller->name = 'Jonathan Mauricio Lopez';
+        $seller->identification = 1221723615;
+        $seller->phone_number = 3014718821;
+        $seller->type_product = 'almuerzo';
+        $seller->payment_method = 'efectivo';
+        $seller->save();
+
+        $seller = new Seller();
+        $seller->name = 'Daniel Estrada Maldonado';
         $seller->identification = 1020486800;
         $seller->phone_number = 3147919510;
-        $seller->type_product = 'almuerzo';
+        $seller->type_product = 'mixto';
         $seller->payment_method = 'efectivo';
         $seller->save();
     }
