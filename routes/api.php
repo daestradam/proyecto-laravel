@@ -22,13 +22,13 @@ use App\Http\Controllers\AuthController;
 
 
 Route::apiResource('users', AuthController::class);
-
+Route::apiResource('products', ProductController::class);
 Route::post('login', [AuthController::class, 'login']);
 
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     Route::apiResource('sellers', SellerController::class)->except(['create', 'edit']);
-    Route::apiResource('products', ProductController::class)->except(['create', 'edit']);
+    //Route::apiResource('products', ProductController::class)->except(['create', 'edit']);
 });
 
